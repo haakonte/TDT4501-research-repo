@@ -13,18 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
+      - name: Install Lighthouse
         run: npm install -g lighthouse
 
+      - name: Install node
+        run: npm install
+
       - name: Start Local Development Server
-        run: |
-          # Replace this with your command to start the local development server
-          # For example, if you're using npm:
-          npm install
-          npm run dev
+        run: npm run dev
 
       - name: Wait for Local Server to Start
-        run: sleep 10 # Adjust the sleep duration as needed
+        run: sleep 10s # Adjust the sleep duration as needed
 
       - name: Run Lighthouse Audit
         run: lighthouse http://localhost:5173 --output json --output-path lighthouse-report.json
