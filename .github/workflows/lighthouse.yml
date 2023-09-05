@@ -24,6 +24,7 @@ jobs:
 
       - name: Wait for Local Server to Start
         run: sleep 10s # Adjust the sleep duration as needed
+        shell: bash
 
       - name: Run Lighthouse Audit
         run: lighthouse http://localhost:5173 --output json --output-path lighthouse-report.json
