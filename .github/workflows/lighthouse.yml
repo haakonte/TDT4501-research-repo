@@ -3,7 +3,7 @@ name: Lighthouse Audit
 on:
   push:
     branches:
-      - main
+      - main # Adjust this to the branch you want to monitor
 
 jobs:
   lighthouse:
@@ -16,8 +16,18 @@ jobs:
       - name: Install Dependencies
         run: npm install -g lighthouse
 
+      - name: Start Local Development Server
+        run: |
+          # Replace this with your command to start the local development server
+          # For example, if you're using npm:
+          npm install
+          npm run dev
+
+      - name: Wait for Local Server to Start
+        run: sleep 10 # Adjust the sleep duration as needed
+
       - name: Run Lighthouse Audit
-        run: lighthouse http://localhost:5173/ --output json --output-path lighthouse-report.json
+        run: lighthouse http://localhost:5173 --output json --output-path lighthouse-report.json
 
       - name: Upload Lighthouse Report
         uses: actions/upload-artifact@v2
