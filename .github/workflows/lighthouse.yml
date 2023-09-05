@@ -19,8 +19,8 @@ jobs:
       - name: Install node
         run: npm install
 
-      - name: Start Local Development Server
-        run: npm run dev
+      - name: Build the project
+        run: npm run build
 
       - name: Run Lighthouse Audit
         run: lighthouse http://localhost:5173 --output json --output-path lighthouse-report.json
