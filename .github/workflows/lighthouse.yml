@@ -1,0 +1,26 @@
+name: Lighthouse Audit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install -g lighthouse
+
+      - name: Run Lighthouse Audit
+        run: lighthouse http://localhost:5173/ --output json --output-path lighthouse-report.json
+
+      - name: Upload Lighthouse Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lighthouse-report
+          path: lighthouse-report.json
