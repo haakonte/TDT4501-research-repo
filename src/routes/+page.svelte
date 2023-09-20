@@ -25,7 +25,7 @@
 	</h2>
 
 	<p>
-		Yoooo
+		Yoooo, ayoooo
 	</p>
 
 </section>
